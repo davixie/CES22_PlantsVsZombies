@@ -1,0 +1,35 @@
+import pygame
+from pygame.locals import *
+
+class Atacante(pygame.sprite.Sprite):
+    def __init__(self, positionx, positiony, velx, vely, list_image): 
+        # image is the path to the image
+        
+        pygame.sprite.Sprite.__init__(self)
+        
+        self.positionx = positionx
+        self.positiony = positiony
+        self.velx = velx
+        self.vely = vely
+
+        self.contador_image = 0
+
+        self.clock = 0
+
+        self.listImage = []
+        self.image = pygame.image.load(list_image[0]).convert_alpha()
+        self.rect = self.image.get_rect()
+        for img in list_image:
+            self.listImage.append(pygame.image.load(img).convert_alpha())
+    
+    def update(self):
+        self.contador_image = (self.contador_image + 1) % (len(self.listImage))
+        self.image = self.listImage[ self.contador_image ]
+
+        self.clock = self.clock + 1
+
+        self.positionx += self.velx
+        self.positiony += self.vely
+
+        self.rect[0] = self.positionx
+        self.rect[1] = self.positiony
