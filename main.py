@@ -15,8 +15,10 @@ BACKGROUND = pygame.image.load('./assets/field_game.png')
 BACKGROUND = pygame.transform.scale(BACKGROUND, (SCREEN_WIDTH, SCREEN_HEIGHT))
 
 virus_group = pygame.sprite.Group()
-virus = Virus(0, 200, 5, 0, ['./assets/atacante1/walk1.png', './assets/atacante1/walk2.png', './assets/atacante1/walk3.png', './assets/atacante1/walk4.png'])
+virus = Virus(0, 200, 5, 0, 1)
+zumbi = Virus(0, 100, 4, 0, 1)
 virus_group.add(virus)
+virus_group.add(zumbi)
 
 clock = pygame.time.Clock()
 
