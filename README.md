@@ -33,3 +33,25 @@ Recreating the game Plants vs Zombies
   ```
   pip freeze > requirements.txt
   ```
+
+## O JOGO
+O jogo é baseado no famoso jogo "Plants Vs Zombies", porém modificado para uma realizade de pandemia da Covid-19, onde as plantas são os médicos e profissionais da saúde, defendendo a população do vírus, de suas variantes e de outras pessoas contagiadas, estes substituindo o papel dos zumbis.
+
+### Personagens
+
+#### Defensores:
+Os defensores do jogo são:
+- Médicos
+- Máscaras
+- Álcool e Gel
+- Enfermeiros
+
+#### Atacantes:
+Os atacantes do jogo são:
+- Vírus da Covid-19
+- Variantes da Covid-19
+- Pessoas Contagiadas
+
+## INICIAR A APLICAÇÃO/JOGO
+
+- Para iniciar o jogo, rode o arquivo main.py.
