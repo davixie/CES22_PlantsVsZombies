@@ -1,9 +1,6 @@
 # CES22_PlantsVsZombies
 Recreating the game Plants vs Zombies
 
-## PLAY
-python main.py
-
 ## SETUP
 
 ### Criar Ambiente virtual no python
@@ -58,3 +55,7 @@ Os atacantes do jogo são:
 ## INICIAR A APLICAÇÃO/JOGO
 
 - Para iniciar o jogo, rode o arquivo main.py.
+```
+python3 main.py
+```
+
