@@ -1,18 +1,11 @@
 import pygame
-
 from pygame.locals import *
-
-from atacante.virus import Virus
-
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 400
+from classes.atacante.export import Atacante
+from classes.atacante.export import Virus
+from constants import BACKGROUND, screen
+# from classes.defensor.defensor import Defensor
 
 pygame.init()
-
-screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-
-BACKGROUND = pygame.image.load('./assets/field_game.png')
-BACKGROUND = pygame.transform.scale(BACKGROUND, (SCREEN_WIDTH, SCREEN_HEIGHT))
 
 virus_group = pygame.sprite.Group()
 virus = Virus(0, 200, 5, 0)

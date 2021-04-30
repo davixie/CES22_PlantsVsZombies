@@ -1,4 +1,4 @@
-from atacante.atacante import Atacante
+from classes.atacante.atacante import Atacante
 
 class Virus(Atacante):
     def __init__(self, positionx, positiony, velx, vely):
