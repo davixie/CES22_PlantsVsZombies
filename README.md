@@ -1,6 +1,9 @@
 # CES22_PlantsVsZombies
 Recreating the game Plants vs Zombies
 
+## PLAY
+python main.py
+
 ## SETUP
 
 ### Criar Ambiente virtual no python
