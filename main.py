@@ -6,7 +6,6 @@ from functions.export import update_group, load_defenders, load_attackers
 pygame.init()
 
 atacante_group = pygame.sprite.Group()
-
 load_attackers(atacante_group)
 
 defensor_group = pygame.sprite.Group()
