@@ -50,8 +50,8 @@ def intro(clock,screen):
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONUP:
                 x,y=pygame.mouse.get_pos()
-                if x>=600 and x<=880:
-                    if y>=710 and y<=830:
+                if x>=600*SCREEN_WIDTH/1600 and x<=880*SCREEN_WIDTH/1600:
+                    if y>=710*SCREEN_HEIGHT/900 and y<=830*SCREEN_HEIGHT/900:
                         start=True
             if event.type == pygame.QUIT:
                 pygame.quit()
