@@ -2,7 +2,7 @@ import pygame
 from pygame.locals import *
 
 class Atacante(pygame.sprite.Sprite):
-    def __init__(self, positionx, positiony, velx, vely, power, list_image): # life between 0 and 1
+    def __init__(self, positionx, positiony, velx, vely, resistence, power, list_image): # life between 0 and 1
         # image is the path to the image
         
         pygame.sprite.Sprite.__init__(self)
@@ -11,6 +11,8 @@ class Atacante(pygame.sprite.Sprite):
         self.positiony = positiony
         self.velx = velx
         self.vely = vely
+
+        self.resistence = resistence
         self.power = power
         self.life = 1
 
@@ -37,5 +39,5 @@ class Atacante(pygame.sprite.Sprite):
         self.rect[1] = self.positiony
     
     def looseLife(damage):
-        self.life = self.life - damage * (1 - self.power)
-        self.velx = self.velx - damage * (1 - self.power) # 0 < slower < 1
+        self.life = self.life - damage * (1 - self.resistence)
+        self.velx = self.velx - damage * (1 - self.resistence) # 0 < slower < 1
