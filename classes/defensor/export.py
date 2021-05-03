@@ -1,1 +1,1 @@
-# from classes.defensor.defensor import Defensor
+from classes.defensor.defensor import Defensor

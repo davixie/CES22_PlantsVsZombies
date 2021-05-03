@@ -1,21 +1,20 @@
 import pygame
 from pygame.locals import *
-from classes.atacante.export import Virus, Variante, PessoaContagiada
 from constants import BACKGROUND, screen
-# from classes.defensor.defensor import Defensor
+from functions.export import update_group, load_defenders, load_attackers
 
 pygame.init()
 
 atacante_group = pygame.sprite.Group()
-virus = Virus(0, 200, 5, 0)
-doente = PessoaContagiada(0, 100, 4, 0)
-atacante_group.add(virus)
-atacante_group.add(doente)
+
+load_attackers(atacante_group)
+
+defensor_group = pygame.sprite.Group()
+load_defenders(defensor_group)
 
 clock = pygame.time.Clock()
 
 while True:
-
     clock.tick(10)
 
     for event in pygame.event.get():
@@ -24,7 +23,7 @@ while True:
     
     screen.blit(BACKGROUND, (0, 0))
 
-    atacante_group.update()
-    atacante_group.draw(screen)
-
+    update_group(atacante_group, screen)
+    update_group(defensor_group, screen)
+        
     pygame.display.update()
