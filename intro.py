@@ -5,7 +5,7 @@ from pygame import mixer
 
 def intro(clock,screen):
 
-    mixer.music.load(os.path.join('assets','alexander-nakarada-chase.mp3'))
+    mixer.music.load(os.path.join('assets','alexander-nakarada-chase.ogg'))
     mixer.music.play(-1)
 
     for i in range(1,20):
