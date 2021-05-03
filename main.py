@@ -2,6 +2,7 @@ import pygame
 from pygame.locals import *
 from constants import BACKGROUND, screen
 from functions.export import update_group, load_defenders, load_attackers
+from intro import intro
 
 pygame.init()
 
@@ -12,6 +13,8 @@ defensor_group = pygame.sprite.Group()
 load_defenders(defensor_group)
 
 clock = pygame.time.Clock()
+
+intro(clock,screen)
 
 while True:
     clock.tick(10)
