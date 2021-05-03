@@ -1,25 +1,34 @@
 import pygame
 from pygame.locals import *
 
-class Buttons(pygame.sprite.Sprite):
-    def __init__(self, positionx, positiony, sizex, sizey):
+
+class Buttons():
+    def _init_(self, positionx, positiony, size):
         #posicao x,y do topo esquerdo do botao: a depender da arte do jogo
 
-        pygame.sprite.Sprite.__init__(self)
+        self.surface = pygame.Surface(size)
+        self.rect = pygame.Rect(positionx, positiony, size[0], size[1])
 
-        self.positionx = positionx
-        self.positiony = positiony
-        self.velx = sizex
-        self.vely = sizey
+        self.flag = 0
+
+class Button_medico(Buttons):
+
+    def _init_(self, positionx, positiony,size):
+
+        super()._init_(positionx, positiony,size)
+        self.name = "medico"
+
+    def create(self,pos):
+        1
 
 
-        self.rect = pygame.Rect(positionx, positiony, sizex,sizey)
 
-buybuttons = pygame.sprite.Group()
+class Button_enfermeira(Buttons):
 
-buy_medico = Buttons(10,40,50,40)
-buy_bomba = Buttons(60,40,50,40)
+    def _init_(self, positionx, positiony,size):
 
-buybuttons.add(buy_bomba)
-buybuttons.add(buy_medico)
+        super()._init_(positionx, positiony)
+        self.name = "enfermeira"
 
+    def create(self, pos):
+        1
