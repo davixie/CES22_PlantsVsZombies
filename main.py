@@ -16,7 +16,7 @@ clock = pygame.time.Clock()
 while True:
     clock.tick(10)
 
-    for event in pygame.eve+nt.get():
+    for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
     
