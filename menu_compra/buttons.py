@@ -102,8 +102,8 @@ class Play_again():
         self.surface = pygame.Surface(size)
         self.rect = pygame.Rect(posx, posy, sizex, sizey)
 
-    #def action(self):
-        #implementar
+    def action(self):
+
 
 class Exit_button():
     def __init__(self, posx, posy, sizex, sizey):
