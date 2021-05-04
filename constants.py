@@ -16,4 +16,8 @@ columns = [0, COLUMN_SPACE, 2*COLUMN_SPACE, 3*COLUMN_SPACE, 4*COLUMN_SPACE]
 BACKGROUND = pygame.image.load(os.path.join('assets','background.png'))
 BACKGROUND = pygame.transform.scale(BACKGROUND, (SCREEN_WIDTH, SCREEN_HEIGHT))
 
+#Background of game win
+GAME_WIN = pygame.image.load(os.path.join('assets','artes finais','game win.png'))
+GAME_WIN = pygame.transform.scale(GAME_WIN, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
 INITIAL_VACCINES=100

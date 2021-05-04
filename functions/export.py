@@ -5,3 +5,5 @@ from functions.load_final_defenses import load_final_defenses
 from functions.check_colisions import check_colisions
 from functions.load_player import load_player
 from functions.check_game_over import check_game_over
+from functions.verify_end_time import verify_end_time
+from functions.write_screen_game_win import write_screen_game_win
