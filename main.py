@@ -1,7 +1,7 @@
 import pygame
 from pygame.locals import *
 from constants import BACKGROUND, screen
-from functions.export import update_group, load_defenders, load_attackers
+from functions.export import update_group, load_defenders, load_attackers, check_attacker_colisions
 from intro import intro
 
 pygame.init()
@@ -16,6 +16,10 @@ clock = pygame.time.Clock()
 
 intro(clock,screen)
 
+groups = []
+groups.append(atacante_group)
+groups.append(defensor_group)
+
 while True:
     clock.tick(10)
 
@@ -23,9 +27,11 @@ while True:
         if event.type == QUIT:
             pygame.quit()
     
+    check_attacker_colisions(atacante_group, defensor_group, groups)
+            
     screen.blit(BACKGROUND, (0, 0))
 
-    update_group(atacante_group, screen)
-    update_group(defensor_group, screen)
-        
+    for group in groups:
+        update_group(group, screen)
+          
     pygame.display.update()

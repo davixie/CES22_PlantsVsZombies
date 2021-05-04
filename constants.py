@@ -6,7 +6,7 @@ SCREEN_HEIGHT = 900
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 # Size of Rows
-ROW_SPACE = 100
+ROW_SPACE = 150
 rows = [0, ROW_SPACE, 2*ROW_SPACE, 3*ROW_SPACE, 4*ROW_SPACE]
 
 # Background of Game

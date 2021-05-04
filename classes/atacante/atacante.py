@@ -11,7 +11,7 @@ class Atacante(pygame.sprite.Sprite):
         self.positiony = positiony
         self.velx = velx
         self.vely = vely
-
+        self.stop = False
         self.resistence = resistence
         self.power = power
         self.life = 1
@@ -24,7 +24,9 @@ class Atacante(pygame.sprite.Sprite):
         self.image = pygame.image.load(list_image[0]).convert_alpha()
         self.rect = self.image.get_rect()
         for img in list_image:
-            self.listImage.append(pygame.image.load(img).convert_alpha())
+            new_img = pygame.image.load(img).convert_alpha()
+            new_img = pygame.transform.scale(new_img, (120, 160))
+            self.listImage.append(new_img)
     
     def update(self):
         self.contador_image = (self.contador_image + 1) % (len(self.listImage))
@@ -32,12 +34,18 @@ class Atacante(pygame.sprite.Sprite):
 
         self.clock = self.clock + 1
 
-        self.positionx -= self.velx
-        self.positiony -= self.vely
+        if not self.stop:
+            self.positionx -= 10*self.velx
+            self.positiony -= self.vely
 
-        self.rect[0] = self.positionx
-        self.rect[1] = self.positiony
+            self.rect[0] = self.positionx
+            self.rect[1] = self.positiony
+        self.stop = False
     
     def looseLife(damage):
         self.life = self.life - damage * (1 - self.resistence)
         self.velx = self.velx - damage * (1 - self.resistence) # 0 < slower < 1
+
+    def attacker_stop(self):
+        self.stop = True
+       
