@@ -85,7 +85,7 @@ class Button_cientista(Buttons):
     def __init__(self, positionx, positiony,size):
 
         super().__init__(positionx, positiony,size)
-        self.cost=100
+        self.cost=50
         self.image=pygame.image.load(os.path.join('assets','artes finais','defensor 5','scientist.png')).convert_alpha()
 
     def create(self,pos, defensor_group, defensor_power_group):
