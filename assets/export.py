@@ -17,6 +17,12 @@ second_attacker_2 = pygame.image.load(os.path.join('assets','artes finais','atac
 second_attacker_2 = pygame.transform.scale(second_attacker_2, (SQUARE_X, SQUARE_Y))
 second_attacker_images_list = [second_attacker_2]
 
+third_attacker_1 = pygame.image.load(os.path.join('assets','artes finais','atacantes','virus2_1.png'))
+third_attacker_1 = pygame.transform.scale(third_attacker_1, (SQUARE_X, SQUARE_Y))
+third_attacker_2 = pygame.image.load(os.path.join('assets','artes finais','atacantes','virus2_2.png'))
+third_attacker_2 = pygame.transform.scale(third_attacker_2, (SQUARE_X, SQUARE_Y))
+third_attacker_images_list = [third_attacker_1, third_attacker_2]
+
 doctor_1 = pygame.image.load(os.path.join('assets','artes finais','defensor 1','doctor_1.png'))
 doctor_1 = pygame.transform.scale(doctor_1, (SQUARE_X, SQUARE_Y))
 doctor_2 = pygame.image.load(os.path.join('assets','artes finais','defensor 1','doctor_2.png'))

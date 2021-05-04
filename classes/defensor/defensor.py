@@ -12,7 +12,7 @@ class Defensor(pygame.sprite.Sprite):
         self.defensor_power_group = defensor_power_group
         self.life = 20
         self.clock = 0
-
+        self.attack_frequency=20
         self.contador_image = 0
         self.list_image = []
         self.image = list_image[0].convert_alpha()
@@ -30,7 +30,7 @@ class Defensor(pygame.sprite.Sprite):
         self.clock = self.clock + 1
         self.rect.center = (self.position_x, self.position_y)
 
-        if(self.clock%20 == 0):
+        if(self.clock%self.attack_frequency == 0):
             self.atack(self.defensor_power_group)
     
     def looseLife(self, damage, groups):

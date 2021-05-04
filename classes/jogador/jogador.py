@@ -33,7 +33,7 @@ class Jogador:
     def update_time(self):
         self.time+=1
         if random.uniform(0,1)<0.1:
-            self.update_vaccines(7)
+            self.update_vaccines(14)
 
     def verify_places(self,defensor_group):
         self.board=[[0,0,0,0,0,0,0,0,0],

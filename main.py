@@ -8,6 +8,7 @@ from intro import intro
 from menu_compra.buttons import Button_medico, Button_enfermeiro,Button_mascara,Button_alcool,Button_cientista,Play_again
 from pygame import font
 from create_enemys import create_enemys
+from pygame import mixer
 
 pygame.init()
 
@@ -42,7 +43,7 @@ groups.append(defensor_power_group)
 groups.append(final_defensor_group)
 game_over = False
 while not game_over:
-    clock.tick(10)
+    clock.tick(1000)
     screen.blit(BACKGROUND, (0, 0))
 
     for event in pygame.event.get():
@@ -70,6 +71,9 @@ while not game_over:
 
     pygame.display.update()
 
+mixer.music.stop()
+mixer.music.load(os.path.join('assets','John_Bartmann_-_14_-_Serial_Killer.ogg'))
+mixer.music.play(-1)
 game_over_image = os.path.join('assets', 'artes finais', 'game over.png')
 if game_over:
     while True:
