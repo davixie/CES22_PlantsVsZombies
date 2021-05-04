@@ -33,7 +33,17 @@ class Jogador:
     def update_time(self):
         self.time+=1
         if random.uniform(0,1)<0.1:
-            self.update_vaccines(1)
+            self.update_vaccines(7)
+
+    def verify_places(self,defensor_group):
+        self.board=[[0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0]]
+        for defensor in defensor_group:
+            index_x,index_y=get_square_index(defensor.position_x,defensor.position_y)
+            self.board[index_x][index_y]=1
 
     def verify_event(self,event,buybuttons,defensor_group, defensor_power_group,atacante_group,screen):
         for button in buybuttons:

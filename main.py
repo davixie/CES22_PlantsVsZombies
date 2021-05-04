@@ -33,7 +33,7 @@ buybuttons = [button_medico, button_alcool, button_mascara, button_enfermeiro, b
 
 clock = pygame.time.Clock()
 
-#intro(clock,screen)
+intro(clock,screen)
 
 groups = []
 groups.append(atacante_group)
@@ -58,6 +58,7 @@ while not game_over:
     update_groups(groups, screen)
     player.drawn_vaccines_score(screen)
     player.update_time()
+    player.verify_places(defensor_group)
 
     # FIM DE JOGO: GAME WIN
 
@@ -66,8 +67,6 @@ while not game_over:
 #        buybuttons=[]
 #        for event in pygame.event.get():
 #            verify_gamewin_buttons(event)
-
-
 
     pygame.display.update()
 
