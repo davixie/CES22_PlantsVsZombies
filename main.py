@@ -6,7 +6,8 @@ from functions.export import update_groups, load_defenders, load_attackers, chec
 from constants import BACKGROUND, GAME_WIN, screen
 from intro import intro
 from menu_compra.buttons import Button_medico, Button_enfermeiro,Button_mascara,Button_alcool,Button_cientista,Play_again
-
+from pygame import font
+from create_enemys import create_enemys
 
 pygame.init()
 
@@ -54,6 +55,8 @@ while not game_over:
     check_colisions(groups)
     game_over = check_game_over(atacante_group)
 
+    create_enemys(atacante_group,player)
+    check_colisions(groups)
     update_groups(groups, screen)
     player.drawn_vaccines_score(screen)
     player.update_time()
