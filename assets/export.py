@@ -56,3 +56,5 @@ scientist_power = pygame.image.load(os.path.join('assets','artes finais','defens
 scientist_power = pygame.transform.scale(scientist_power, (SQUARE_POWER_X, SQUARE_POWER_Y))
 scientist_images_list = [scientist_1, scientist_2]
 scientist_power_images_list = [scientist_power]
+
+final_defensor_image = os.path.join('assets','artes finais','defensor 3','alcohol.png')
