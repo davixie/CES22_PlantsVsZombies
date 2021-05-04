@@ -53,11 +53,12 @@ while True:
     player.update_time()
 
     # FIM DE JOGO: GAME WIN
-    if verify_end_time(player):
-        write_screen_game_win(screen)
-        buybuttons=[]
-        for event in pygame.event.get():
-            verify_gamewin_buttons(event)
+
+#    if verify_end_time(player):
+#        write_screen_game_win(screen)
+#        buybuttons=[]
+#        for event in pygame.event.get():
+#            verify_gamewin_buttons(event)
 
 
 
