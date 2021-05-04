@@ -3,7 +3,7 @@ from pygame.locals import *
 from constants import SCREEN_WIDTH, SCREEN_HEIGHT
 
 class Defensor(pygame.sprite.Sprite):
-    def __init__(self, position_x, position_y, resistence, power, image, defensor_power_group): # life between 0 and 1
+    def __init__(self, position_x, position_y, resistence, power, list_image, defensor_power_group): # life between 0 and 1
         pygame.sprite.Sprite.__init__(self)
         self.position_x = position_x
         self.position_y = position_y
@@ -12,11 +12,21 @@ class Defensor(pygame.sprite.Sprite):
         self.defensor_power_group = defensor_power_group
         self.life = 20
         self.clock = 0
-        self.image = pygame.image.load(image).convert_alpha()
-        self.image = pygame.transform.scale(self.image, (120, 160))
+
+        self.contador_image = 0
+        self.list_image = []
+        self.image = pygame.image.load(list_image[0]).convert_alpha()
+        for img in list_image:
+            new_img = pygame.image.load(img).convert_alpha()
+            new_img = pygame.transform.scale(new_img, (120, 160))
+            self.list_image.append(new_img)
+        # self.image = pygame.transform.scale(self.image, (120, 160))
         self.rect = self.image.get_rect()
     
     def update(self):
+        self.contador_image = (self.contador_image + 1) % (len(self.list_image))
+        self.image = self.list_image[ self.contador_image ]
+
         self.clock = self.clock + 1
         self.rect.center = (self.position_x, self.position_y)
 
@@ -35,5 +45,5 @@ class Defensor(pygame.sprite.Sprite):
                 group.remove(self)
 
     def getMyImage(self):
-        return self.image
+        return self.list_image[0]
         
