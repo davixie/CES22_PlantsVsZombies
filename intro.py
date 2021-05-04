@@ -5,6 +5,11 @@ from pygame import mixer
 
 def intro(clock,screen):
 
+    game_icon=pygame.image.load(os.path.join('assets','icon.png'))
+    pygame.display.set_icon(game_icon)
+    pygame.display.set_caption('QUARENTINE: THE PANDEMIC GAME')
+
+
     mixer.music.load(os.path.join('assets','alexander-nakarada-chase.ogg'))
     mixer.music.play(-1)
 

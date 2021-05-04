@@ -5,6 +5,7 @@ from functions.export import update_groups, load_defenders, load_attackers, chec
 from intro import intro
 from pygame import font
 from menu_compra.buttons import Button_medico
+from create_enemys import create_enemys
 
 pygame.init()
 
@@ -38,12 +39,11 @@ while True:
             pygame.quit()
         player.verify_event(event,buybuttons,defensor_group, defensor_power_group,atacante_group,screen)
 
+    print(player.time)
+
+    create_enemys(atacante_group,player)
     check_colisions(groups)
-
-    screen.blit(BACKGROUND, (0, 0))
-
     update_groups(groups, screen)
-          
     player.drawn_vaccines_score(screen)
     player.update_time()
     pygame.display.update()

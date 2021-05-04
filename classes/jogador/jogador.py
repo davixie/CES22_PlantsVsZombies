@@ -35,7 +35,6 @@ class Jogador:
         if random.uniform(0,1)<0.1:
             self.update_vaccines(1)
 
-
     def verify_event(self,event,buybuttons,defensor_group, defensor_power_group,atacante_group,screen):
         for button in buybuttons:
             if event.type == MOUSEBUTTONDOWN:
@@ -54,10 +53,12 @@ class Jogador:
                         button.create(event.pos, defensor_group,defensor_power_group)
                         self.update_vaccines(-button.cost)
                         self.board[x_index][y_index]=1
-                        
+
             if button.flag == 1:
                 x=pygame.mouse.get_pos()[0]
                 y=pygame.mouse.get_pos()[1]
                 screen.blit(self.image_selected, (x, y))
+
+    
         
     
