@@ -93,3 +93,21 @@ class Button_cientista(Buttons):
         if posx > 0:
             defensor = Cientista(posx, posy, defensor_power_group)
             load_defenders(defensor, defensor_group)
+
+
+class Play_again():
+    def __init__(self, posx, posy, sizex, sizey):
+        #posicao x,y do topo esquerdo do botao: a depender da arte do jogo
+
+        self.surface = pygame.Surface(size)
+        self.rect = pygame.Rect(posx, posy, sizex, sizey)
+
+    def action(self):
+        #implementar
+
+class Exit_button():
+    def __init__(self, posx, posy, sizex, sizey):
+        #posicao x,y do topo esquerdo do botao: a depender da arte do jogo
+
+        self.surface = pygame.Surface(size)
+        self.rect = pygame.Rect(posx, posy, sizex, sizey)
