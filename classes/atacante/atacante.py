@@ -42,9 +42,15 @@ class Atacante(pygame.sprite.Sprite):
             self.rect[1] = self.positiony
         self.stop = False
     
-    def looseLife(damage):
+    def looseLife(self, damage, groups):
         self.life = self.life - damage * (1 - self.resistence)
-        self.velx = self.velx - damage * (1 - self.resistence) # 0 < slower < 1
+        if(self.life < 0):
+            self.die(groups)
+
+    def die(self, groups):
+        for group in groups:
+            if self in group:
+                group.remove(self)
 
     def attacker_stop(self):
         self.stop = True

@@ -1,7 +1,7 @@
 import pygame
 from pygame.locals import *
 from constants import BACKGROUND, screen
-from functions.export import update_group, load_defenders, load_attackers, check_attacker_colisions, load_player
+from functions.export import update_group, load_defenders, load_attackers, check_attacker_colisions, check_defensor_power_colision, load_player
 from intro import intro
 
 from pygame import font
@@ -38,7 +38,6 @@ groups.append(defensor_power_group)
 
 while True:
     clock.tick(10)
-    print(pygame.mouse.get_pos())
     screen.blit(BACKGROUND, (0, 0))
     for event in pygame.event.get():
         if event.type == QUIT:
@@ -47,7 +46,8 @@ while True:
             player.verify_event(event,buybuttons,defensor_group, defensor_power_group,atacante_group,screen)
 
     check_attacker_colisions(atacante_group, defensor_group, groups)
-            
+    check_defensor_power_colision(defensor_power_group, atacante_group, groups)
+
     screen.blit(BACKGROUND, (0, 0))
 
     for group in groups:
