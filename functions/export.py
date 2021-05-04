@@ -1,5 +1,7 @@
 from functions.update_group import update_groups
 from functions.load_attackers import load_attackers
 from functions.load_defenders import load_defenders
+from functions.load_final_defenses import load_final_defenses
 from functions.check_colisions import check_colisions
 from functions.load_player import load_player
+from functions.check_game_over import check_game_over

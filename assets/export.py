@@ -5,3 +5,4 @@ first_attacker_images_list = [os.path.join('assets','artes finais','atacantes','
 second_attacker_images_list = [os.path.join('assets','artes finais','atacantes','sick.png')]
 defensor1_images_list = [os.path.join('assets','artes finais','defensor 1','doctor.png')]
 defensor1_power_images_list = [os.path.join('assets','artes finais','defensor 1','doctor_item.png')]
+final_defensor_image = os.path.join('assets','artes finais','defensor 3','alcohol.png')
