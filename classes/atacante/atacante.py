@@ -14,7 +14,7 @@ class Atacante(pygame.sprite.Sprite):
         self.stop = False
         self.resistence = resistence
         self.power = power
-        self.life = 1
+        self.life = 3
 
         self.contador_image = 0
 

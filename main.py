@@ -1,12 +1,9 @@
 import pygame
 from pygame.locals import *
 from constants import BACKGROUND, screen
-from functions.export import update_group, load_defenders, load_attackers, check_attacker_colisions, check_defensor_power_colision, load_player
+from functions.export import update_groups, load_defenders, load_attackers, check_colisions, load_player
 from intro import intro
-
-from pygame import font
-
-from menu_compra.buttons import Button_medico
+from menu_compra.buttons import Button_medico, Button_enfermeiro,Button_mascara,Button_alcool,Button_cientista
 
 
 pygame.init()
@@ -14,18 +11,21 @@ pygame.init()
 atacante_group = pygame.sprite.Group()
 load_attackers(atacante_group)
 
-
 defensor_group = pygame.sprite.Group()
-player=load_player()
+player = load_player()
 
 defensor_group = pygame.sprite.Group()
 
 
 size = (140,72)
-defensor_power_group = pygame.sprite.Group()
-button_medico = Button_medico(0, 224, size)
-buybuttons = [button_medico]
 
+defensor_power_group = pygame.sprite.Group()
+button_medico = Button_medico(0, 77*2, size)
+button_enfermeiro = Button_enfermeiro(0,114*2,size)
+button_alcool = Button_alcool(0,153*2,size)
+button_mascara = Button_mascara(0,188*2,size)
+button_cientista = Button_cientista(0,226*2,size)
+buybuttons = [button_medico, button_alcool, button_mascara, button_enfermeiro, button_cientista]
 
 clock = pygame.time.Clock()
 
@@ -39,22 +39,17 @@ groups.append(defensor_power_group)
 while True:
     clock.tick(10)
     screen.blit(BACKGROUND, (0, 0))
+
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
-        else:
-            player.verify_event(event,buybuttons,defensor_group, defensor_power_group,atacante_group,screen)
+        player.verify_event(event,buybuttons,defensor_group, defensor_power_group,atacante_group,screen)
 
-    check_attacker_colisions(atacante_group, defensor_group, groups)
-    check_defensor_power_colision(defensor_power_group, atacante_group, groups)
+    check_colisions(groups)
 
-    screen.blit(BACKGROUND, (0, 0))
-
-    for group in groups:
-        update_group(group, screen)
+    update_groups(groups, screen)
           
     player.drawn_vaccines_score(screen)
     player.update_time()
 
-        
     pygame.display.update()

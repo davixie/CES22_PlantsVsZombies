@@ -55,6 +55,27 @@ def intro(clock,screen):
                         start=True
             if event.type == pygame.QUIT:
                 pygame.quit()
-    mixer.music.stop() 
+    for i in range(1,126):
+        if i==22:
+            clock.tick(0.5)
+        elif i==47:
+            clock.tick(0.5)
+        elif i==73:
+            clock.tick(0.5)
+        elif i==96:
+            clock.tick(0.2)
+        else:
+            clock.tick(15)
+        if i<10:
+            image='ezgif-frame-00{}.png'.format(str(i))
+        elif i<100:
+            image='ezgif-frame-0{}.png'.format(str(i))
+        else:
+            image='ezgif-frame-{}.png'.format(str(i))
+        image=pygame.image.load(os.path.join('assets','Inicio do Jogo', image))
+        image=pygame.transform.scale(image, (SCREEN_WIDTH, SCREEN_HEIGHT))
+        screen.blit(image, (0, 0))
+        pygame.display.update()
+
 
     
