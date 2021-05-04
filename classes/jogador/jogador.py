@@ -23,7 +23,7 @@ class Jogador:
     def update_selection(self,selection):
         self.selecting=selection  
 
-    def verify_event(self,event,buybuttons,defensor_group,atacante_group,screen):
+    def verify_event(self,event,buybuttons,defensor_group, defensor_power_group,atacante_group,screen):
         for button in buybuttons:
             if event.type == MOUSEBUTTONDOWN:
                 if button.rect.collidepoint(event.pos):
@@ -34,7 +34,7 @@ class Jogador:
                 x=pygame.mouse.get_pos()[0]
                 y=pygame.mouse.get_pos()[1]
                 if get_square(x,y)[0]>0:
-                    button.create(event.pos, defensor_group)
+                    button.create(event.pos, defensor_group, defensor_power_group)
                     self.update_vaccines(-button.cost)
             if button.flag == 1:
                 x=pygame.mouse.get_pos()[0]
