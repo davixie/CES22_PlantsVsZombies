@@ -1,11 +1,11 @@
 import pygame
 from pygame.locals import *
-from assets.export import alcohol_power_images_list
+from assets.export import nurse_power_images_list
 
-class Alcool_Gel_Power(pygame.sprite.Sprite):
+class Nurse_Power(pygame.sprite.Sprite):
     def __init__(self, position_x, position_y, power):
         pygame.sprite.Sprite.__init__(self)
-        list_image = alcohol_power_images_list
+        list_image = nurse_power_images_list
         self.image = list_image[0].convert_alpha()
         self.rect = self.image.get_rect()
 
