@@ -45,6 +45,7 @@ Os defensores do jogo são:
 - Máscaras
 - Álcool e Gel
 - Enfermeiros
+- Capitao Vacina
 
 #### Atacantes:
 Os atacantes do jogo são:

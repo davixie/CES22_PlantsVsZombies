@@ -3,7 +3,8 @@ from pygame.locals import *
 from menu_compra.get_square import get_square
 from constants import SCREEN_WIDTH,SCREEN_HEIGHT
 from functions.load_defenders import load_defenders
-from classes.atacante.virus import Virus
+from classes.defensor.medico import Medico
+import os
 
 
 class Buttons():
@@ -20,15 +21,15 @@ class Button_medico(Buttons):
     def __init__(self, positionx, positiony,size):
 
         super().__init__(positionx, positiony,size)
-        self.name = "medico"
         self.cost=25
-        self.image=pygame.image.load('./assets/atacante2/virus1.png').convert_alpha()
+        self.image=pygame.image.load(os.path.join('assets','artes finais','defensor 1','doctor.png')).convert_alpha()
 
-    def create(self,pos, defensor_group):
+    def create(self,pos, defensor_group, defensor_power_group):
         posx,posy = get_square(pos[0],pos[1])
         if posx > 0:
-            medico = Virus(posx-50, posy-50, 0, 0)
+            medico = Medico(posx, posy, defensor_power_group )
             load_defenders(medico, defensor_group)
+
 
 
 class Button_enfermeira(Buttons):

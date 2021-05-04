@@ -36,7 +36,7 @@ class Jogador:
             self.update_vaccines(1)
 
 
-    def verify_event(self,event,buybuttons,defensor_group,atacante_group,screen):
+    def verify_event(self,event,buybuttons,defensor_group, defensor_power_group,atacante_group,screen):
         for button in buybuttons:
             if event.type == MOUSEBUTTONDOWN:
                 if button.rect.collidepoint(event.pos):
@@ -51,9 +51,10 @@ class Jogador:
                     x_index=get_square_index(x,y)[0]
                     y_index=get_square_index(x,y)[1]
                     if self.board[x_index][y_index]==0:
-                        button.create(event.pos, defensor_group)
+                        button.create(event.pos, defensor_group,defensor_power_group)
                         self.update_vaccines(-button.cost)
                         self.board[x_index][y_index]=1
+                        
             if button.flag == 1:
                 x=pygame.mouse.get_pos()[0]
                 y=pygame.mouse.get_pos()[1]
