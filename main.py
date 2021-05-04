@@ -36,7 +36,7 @@ groups.append(defensor_power_group)
 groups.append(final_defensor_group)
 game_over = False
 while not game_over:
-    clock.tick(100)
+    clock.tick(10)
     screen.blit(BACKGROUND, (0, 0))
     for event in pygame.event.get():
         if event.type == QUIT:
