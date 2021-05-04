@@ -3,9 +3,7 @@ from pygame.locals import *
 from constants import BACKGROUND, screen
 from functions.export import update_group, load_defenders, load_attackers, check_attacker_colisions, load_player
 from intro import intro
-
 from pygame import font
-
 from menu_compra.buttons import Button_medico
 
 
