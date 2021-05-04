@@ -1,0 +1,1 @@
+from classes.jogador.jogador import Jogador
