@@ -1,9 +1,9 @@
 import pygame
 from pygame.locals import *
-from constants import BACKGROUND, screen
-from functions.export import update_groups, load_defenders, load_attackers, check_colisions, load_player
+from constants import BACKGROUND, GAME_WIN, screen
+from functions.export import update_groups, load_defenders, load_attackers, check_colisions, load_player,verify_end_time,write_screen_game_win
 from intro import intro
-from menu_compra.buttons import Button_medico, Button_enfermeiro,Button_mascara,Button_alcool,Button_cientista
+from menu_compra.buttons import Button_medico, Button_enfermeiro,Button_mascara,Button_alcool,Button_cientista,Play_again
 
 
 pygame.init()
@@ -51,5 +51,14 @@ while True:
           
     player.drawn_vaccines_score(screen)
     player.update_time()
+
+    # FIM DE JOGO: GAME WIN
+    if verify_end_time(player):
+        write_screen_game_win(screen)
+        buybuttons=[]
+        for event in pygame.event.get():
+            verify_gamewin_buttons(event)
+
+
 
     pygame.display.update()

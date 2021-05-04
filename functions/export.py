@@ -3,3 +3,5 @@ from functions.load_attackers import load_attackers
 from functions.load_defenders import load_defenders
 from functions.check_colisions import check_colisions
 from functions.load_player import load_player
+from functions.verify_end_time import verify_end_time
+from functions.write_screen_game_win import write_screen_game_win
