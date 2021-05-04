@@ -35,7 +35,7 @@ class Atacante(pygame.sprite.Sprite):
         self.clock = self.clock + 1
 
         if not self.stop:
-            self.positionx -= 10*self.velx
+            self.positionx -= self.velx
             self.positiony -= self.vely
 
             self.rect[0] = self.positionx

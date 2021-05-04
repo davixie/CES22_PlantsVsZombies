@@ -1,6 +1,3 @@
-import pygame
-from pygame.locals import *
-
 for event in pygame.event.get():
     if event.type == MOUSEBUTTONDOWN :
         mouse_pos = event.pos

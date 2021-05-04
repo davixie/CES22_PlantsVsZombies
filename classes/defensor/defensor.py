@@ -21,7 +21,7 @@ class Defensor(pygame.sprite.Sprite):
     
     def looseLife(self, damage, groups):
         self.life = self.life - damage * (1 - self.power)
-        print(self.life)
+
         if(self.life < 0):
             self.die(groups)
 
@@ -29,3 +29,7 @@ class Defensor(pygame.sprite.Sprite):
         for group in groups:
             if self in group:
                 group.remove(self)
+
+    def getMyImage(self):
+        return self.image
+        

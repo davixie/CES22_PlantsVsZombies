@@ -1,25 +1,42 @@
 import pygame
 from pygame.locals import *
+from menu_compra.get_square import get_square
+from constants import SCREEN_WIDTH,SCREEN_HEIGHT
+from functions.load_defenders import load_defenders
+from classes.atacante.virus import Virus
 
-class Buttons(pygame.sprite.Sprite):
-    def __init__(self, positionx, positiony, sizex, sizey):
+
+class Buttons():
+    def __init__(self, positionx, positiony, size):
         #posicao x,y do topo esquerdo do botao: a depender da arte do jogo
 
-        pygame.sprite.Sprite.__init__(self)
+        self.surface = pygame.Surface(size)
+        self.rect = pygame.Rect(positionx, positiony, size[0], size[1])
 
-        self.positionx = positionx
-        self.positiony = positiony
-        self.velx = sizex
-        self.vely = sizey
+        self.flag = 0
+
+class Button_medico(Buttons):
+
+    def __init__(self, positionx, positiony,size):
+
+        super().__init__(positionx, positiony,size)
+        self.name = "medico"
+        self.cost=25
+        self.image=pygame.image.load('./assets/atacante2/virus1.png').convert_alpha()
+
+    def create(self,pos, defensor_group):
+        posx,posy = get_square(pos[0],pos[1])
+        if posx > 0:
+            medico = Virus(posx-50, posy-50, 0, 0)
+            load_defenders(medico, defensor_group)
 
 
-        self.rect = pygame.Rect(positionx, positiony, sizex,sizey)
+class Button_enfermeira(Buttons):
 
-buybuttons = pygame.sprite.Group()
+    def __init__(self, positionx, positiony,size):
 
-buy_medico = Buttons(10,40,50,40)
-buy_bomba = Buttons(60,40,50,40)
+        super().__init__(positionx, positiony)
+        self.name = "enfermeira"
 
-buybuttons.add(buy_bomba)
-buybuttons.add(buy_medico)
-
+    def create(self, pos):
+        1

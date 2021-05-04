@@ -2,3 +2,4 @@ from functions.update_group import update_group
 from functions.load_attackers import load_attackers
 from functions.load_defenders import load_defenders
 from functions.check_colisions import check_attacker_colisions
+from functions.load_player import load_player
