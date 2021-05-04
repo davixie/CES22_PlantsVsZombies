@@ -17,6 +17,9 @@ class Defensor(pygame.sprite.Sprite):
         self.rect[0] = self.positionx
         self.rect[1] = self.positiony
     
-    def looseLife(damage):
+    def looseLife(self,damage):
         self.life = self.life - damage * (1 - self.power)
+
+    def getMyImage(self):
+        return self.image
         

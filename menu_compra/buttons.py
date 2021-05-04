@@ -21,11 +21,13 @@ class Button_medico(Buttons):
 
         super().__init__(positionx, positiony,size)
         self.name = "medico"
+        self.cost=25
+        self.image=pygame.image.load('./assets/atacante2/virus1.png').convert_alpha()
 
     def create(self,pos, defensor_group):
-        posx,posy = get_square(pos[0],pos[1],SCREEN_WIDTH,SCREEN_HEIGHT)
+        posx,posy = get_square(pos[0],pos[1])
         if posx > 0:
-            medico = Virus(posx-25, posy-25, 0, 0)
+            medico = Virus(posx-50, posy-50, 0, 0)
             load_defenders(medico, defensor_group)
 
 

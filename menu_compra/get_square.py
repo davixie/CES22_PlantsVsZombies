@@ -1,6 +1,6 @@
 from constants import SCREEN_WIDTH,SCREEN_HEIGHT
 
-def get_square(x_mouse,y_mouse,background_size_x,background_size_y):
+def get_square(x_mouse,y_mouse):
     x_mouse=x_mouse*(1600/SCREEN_WIDTH)
     y_mouse=y_mouse*(900/SCREEN_HEIGHT)
     if x_mouse>=400 and x_mouse<=1445 and y_mouse>=120 and y_mouse<=820:
