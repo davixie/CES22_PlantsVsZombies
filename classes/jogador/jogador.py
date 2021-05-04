@@ -2,6 +2,8 @@ import pygame
 from constants import SCREEN_WIDTH,SCREEN_HEIGHT
 from pygame.locals import *
 from menu_compra.get_square import get_square
+from menu_compra.get_square_index import get_square_index
+import random
 
 class Jogador:
     def __init__(self, vaccines):
@@ -9,6 +11,11 @@ class Jogador:
         self.time=0
         self.selecting=False
         self.image_selected=''
+        self.board=[[0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0]]
 
     def update_vaccines(self,variation):
         self.vaccines+=variation
@@ -21,21 +28,32 @@ class Jogador:
         screen.blit(txttela,(120*SCREEN_WIDTH/1600,45*SCREEN_HEIGHT/900))
 
     def update_selection(self,selection):
-        self.selecting=selection  
+        self.selecting=selection
+
+    def update_time(self):
+        self.time+=1
+        if random.uniform(0,1)<0.1:
+            self.update_vaccines(1)
+
 
     def verify_event(self,event,buybuttons,defensor_group,atacante_group,screen):
         for button in buybuttons:
             if event.type == MOUSEBUTTONDOWN:
                 if button.rect.collidepoint(event.pos):
-                    button.flag = 1
-                    self.image_selected=button.image
+                    if self.vaccines-button.cost>=0:
+                        button.flag = 1
+                        self.image_selected=button.image
             if event.type == MOUSEBUTTONUP and button.flag == 1:
                 button.flag = 0
                 x=pygame.mouse.get_pos()[0]
                 y=pygame.mouse.get_pos()[1]
                 if get_square(x,y)[0]>0:
-                    button.create(event.pos, defensor_group)
-                    self.update_vaccines(-button.cost)
+                    x_index=get_square_index(x,y)[0]
+                    y_index=get_square_index(x,y)[1]
+                    if self.board[x_index][y_index]==0:
+                        button.create(event.pos, defensor_group)
+                        self.update_vaccines(-button.cost)
+                        self.board[x_index][y_index]=1
             if button.flag == 1:
                 x=pygame.mouse.get_pos()[0]
                 y=pygame.mouse.get_pos()[1]

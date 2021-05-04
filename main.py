@@ -41,5 +41,6 @@ while True:
     update_group(atacante_group, screen)
     update_group(defensor_group, screen)
     player.drawn_vaccines_score(screen)
+    player.update_time()
         
     pygame.display.update()
