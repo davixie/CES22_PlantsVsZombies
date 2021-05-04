@@ -15,10 +15,10 @@ class Defensor(pygame.sprite.Sprite):
 
         self.contador_image = 0
         self.list_image = []
-        self.image = pygame.image.load(list_image[0]).convert_alpha()
+        self.image = list_image[0].convert_alpha()
         for img in list_image:
-            new_img = pygame.image.load(img).convert_alpha()
-            new_img = pygame.transform.scale(new_img, (120, 160))
+            new_img = img.convert_alpha()
+            # new_img = pygame.transform.scale(new_img, (120, 160))
             self.list_image.append(new_img)
         # self.image = pygame.transform.scale(self.image, (120, 160))
         self.rect = self.image.get_rect()

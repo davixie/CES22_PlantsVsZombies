@@ -29,7 +29,7 @@ buybuttons = [button_medico, button_alcool, button_mascara, button_enfermeiro, b
 
 clock = pygame.time.Clock()
 
-intro(clock,screen)
+# intro(clock,screen)
 
 groups = []
 groups.append(atacante_group)

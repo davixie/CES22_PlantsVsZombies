@@ -21,11 +21,11 @@ class Atacante(pygame.sprite.Sprite):
         self.clock = 0
 
         self.listImage = []
-        self.image = pygame.image.load(list_image[0]).convert_alpha()
+        self.image = list_image[0].convert_alpha()
         self.rect = self.image.get_rect()
         for img in list_image:
-            new_img = pygame.image.load(img).convert_alpha()
-            new_img = pygame.transform.scale(new_img, (120, 160))
+            new_img = img.convert_alpha()
+            # new_img = pygame.transform.scale(new_img, (120, 160))
             self.listImage.append(new_img)
     
     def update(self):
